@@ -15,8 +15,8 @@ let shipImg;
 
 //bullet
 let bulletArray = [];
-let bulletWidth = 5;
-let bulletHeight = 12;
+let bulletWidth = 15;
+let bulletHeight = 36;
 let bulletX = 218
 
 //ship varuble
@@ -71,7 +71,7 @@ window.onload = function() { //when game starts
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : ship.x + 45,
+                        x : ship.x + 25,
                         y : 536,
                         width : bulletWidth,
                         height: bulletHeight
@@ -127,7 +127,7 @@ function update(){
     for (let i = 0; i < bulletArray.length; i++) {
         let bullet = bulletArray[i];
         bullet.y -= bulletSpeed;
-        context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width*2, bullet.height*2);
+        context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 };
