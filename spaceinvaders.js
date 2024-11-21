@@ -7,10 +7,10 @@ let context;
 let gameOver = false
 
 //ship
-let shipWidth = 96;
-let shipHeight = 96;
-let shipX = 205;
-let shipY = 504;
+let shipWidth = 75;
+let shipHeight = 95;
+let shipX = 218;
+let shipY = 500;
 let shipImg; 
 //actual dimentions
 //21px from left edge
@@ -20,9 +20,9 @@ let shipImg;
 
 //bullet
 let bulletArray = [];
-let bulletWidth = 15;
-let bulletHeight = 36;
-let bulletX = 205
+let bulletWidth = 75;
+let bulletHeight = 95;
+let bulletX = 218
 
 //ship varuble
 let ship = {
@@ -76,7 +76,7 @@ window.onload = function() { //when game starts
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : ship.x + 31,
+                        x : ship.x,
                         y : 536,
                         width : bulletWidth,
                         height: bulletHeight
