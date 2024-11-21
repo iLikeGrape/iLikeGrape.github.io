@@ -76,7 +76,7 @@ window.onload = function() { //when game starts
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : ship.x + 45,
+                        x : ship.x + 37,
                         y : 536,
                         width : bulletWidth,
                         height: bulletHeight
