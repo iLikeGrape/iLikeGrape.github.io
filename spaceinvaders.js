@@ -131,4 +131,9 @@ function update(){
         context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width*2, bullet.height*2);
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+
+    context.fillStyle="black";
+    context.font="20px courier";
+    context.fillText(ship.x, 5, 20);
+    context.fillText(bulletArray, 400, 20);
 };
