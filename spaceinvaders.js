@@ -65,15 +65,14 @@ window.onload = function() { //when game starts
                 moveRight = true
                 break;
             case " ":
-                e.preventDefault();
                 console.log("shoot bullet")
                 if (e.key === " "){
             
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : ship.x,
-                        y : 600,
+                        x : ship.x + 48,
+                        y : 552,
                         width : bulletWidth,
                         height: bulletHeight
                     }
@@ -107,6 +106,9 @@ function update(){
         return;
     }
 
+    if(ship.x < 0 || ship.x > 500){
+        Xspeed = 0
+    }
     ship.x += Xspeed;   
 
     if(moveLeft && !moveRight){
@@ -118,6 +120,7 @@ function update(){
     if(!moveLeft && !moveRight){
         Xspeed = 0
     }
+   
 
     context.clearRect(0, 0, board.width, board.height);
 
@@ -127,9 +130,4 @@ function update(){
         context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width*2, bullet.height*2);
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-
-    context.fillStyle="white";
-    context.font="20px courier";
-    context.fillText(ship.x, 5, 20);
-    context.fillText(bulletArray, 400, 20);
 };
