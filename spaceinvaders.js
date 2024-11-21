@@ -34,7 +34,7 @@ let moveLeft = false;
 let moveRight = false;
 
 //physics for bullet
-let bulletSpeed = 1
+let bulletSpeed = 2
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -55,7 +55,11 @@ window.onload = function() { //when game starts
     bulletImg = new Image();
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
    
-
+    window.addEventListener('keydown', function(e) { //prevents scrolling with space?
+        if(e.key == 32 && e.target == document.body) {
+          e.preventDefault();
+        }
+      });
     
     window.addEventListener("keydown", function(e){
         switch(e.key){
@@ -72,14 +76,14 @@ window.onload = function() { //when game starts
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : shipX,
+                        x : ship.x,
                         y : 600,
                         width : bulletWidth,
                         height: bulletHeight
                     }
                         bulletArray.push(bullet); //add bullet at this moment to the array
             
-                    if (bulletArray.length > 5) {
+                    if (bulletArray.length > 25) {
                         bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
                     }
                 }
