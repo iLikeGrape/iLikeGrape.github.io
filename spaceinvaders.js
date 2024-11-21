@@ -54,12 +54,7 @@ window.onload = function() { //when game starts
     }
     bulletImg = new Image();
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
-   
-    window.addEventListener('keydown', function(e) { //prevents scrolling with space?
-        if(e.key == 32 && e.target == document.body) {
-          e.preventDefault();
-        }
-      });
+
     
     window.addEventListener("keydown", function(e){
         switch(e.key){
@@ -70,6 +65,7 @@ window.onload = function() { //when game starts
                 moveRight = true
                 break;
             case " ":
+                e.preventDefault();
                 console.log("shoot bullet")
                 if (e.key === " "){
             
@@ -132,7 +128,7 @@ function update(){
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 
-    context.fillStyle="black";
+    context.fillStyle="white";
     context.font="20px courier";
     context.fillText(ship.x, 5, 20);
     context.fillText(bulletArray, 400, 20);
