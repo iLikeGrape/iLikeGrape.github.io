@@ -112,7 +112,7 @@ function update(){
     if( ship.x > 428 && Xspeed == 5){
         Xspeed = 0
     }
-    Xship += Xspeed;
+    ship.X += Xspeed;
     if(moveLeft && !moveRight){
         Xspeed = -5
     }
