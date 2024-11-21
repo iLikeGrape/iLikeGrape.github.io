@@ -71,7 +71,7 @@ window.onload = function() { //when game starts
                     //place bullet
                     let bullet = {
                         img : bulletImg,
-                        x : ship.x + shipWidth ,
+                        x : ship.x + 32 ,
                         y : 536,
                         width : bulletWidth,
                         height: bulletHeight
@@ -106,11 +106,13 @@ function update(){
         return;
     }
 
-    if(ship.x < 0 && Xspeed == -5 || ship.x > 500 && Xspeed == 5){
+    if(ship.x < 0 && Xspeed == -5){
         Xspeed = 0
     }
-    ship.x += Xspeed;   
-
+    if( ship.x > 428 && Xspeed == 5){
+        Xspeed = 0
+    }
+    Xship += Xspeed;
     if(moveLeft && !moveRight){
         Xspeed = -5
     }
