@@ -3,6 +3,5 @@ body{
     text-align: center;
 }
 #board {
-    background-color: lightgray;
     border-bottom: 1px solid black;
 }
