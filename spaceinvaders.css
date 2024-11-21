@@ -3,5 +3,6 @@ body{
     text-align: center;
 }
 #board {
+    background-image: url("spaceinvadersImgs/spaceBg.png");
     border-bottom: 1px solid black;
 }
