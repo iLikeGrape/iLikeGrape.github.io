@@ -65,9 +65,9 @@ window.onload = function() { //when game starts
             case "ArrowRight":
                 moveRight = true
                 break;
-            case "Space":
+            case " ":
                 console.log("shoot bullet")
-                if (e.key == "Space"){
+                if (e.key === " "){
             
                     //place bullet
                     let bullet = {
@@ -122,11 +122,9 @@ function update(){
     context.clearRect(0, 0, board.width, board.height);
 
     for (let i = 0; i < bulletArray.length; i++) {
-        console.log('${i} bullet moving')
         let bullet = bulletArray[i];
         bullet.y -= bulletSpeed;
-        context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
-        console.log("bullet drawn") 
+        context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width*2, bullet.height*2);
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 };
