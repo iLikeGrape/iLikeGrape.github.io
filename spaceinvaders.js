@@ -70,6 +70,7 @@ window.onload = function() { //when game starts
                 moveRight = true
                 break;
             case " ":
+                e.preventDefault()
                 console.log("shoot bullet")
                 if (e.key === " "){
             
