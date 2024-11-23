@@ -7,12 +7,13 @@ let context;
 let gameOver = false
 
 //ship
-let shipWidth = 75;
-let shipHeight = 95;
-let shipX = 218;
+let shipWidth = 38;
+let shipHeight = 48;
+let shipX = 226;
 let shipY = 500;
 let shipImg; 
 //actual dimentions
+//75x95
 //21px from left edge
 //24px from right edge
 //middle at 45 from left edge
@@ -20,8 +21,8 @@ let shipImg;
 
 //bullet
 let bulletArray = [];
-let bulletWidth = 75;
-let bulletHeight = 95;
+let bulletWidth = 38;
+let bulletHeight = 48;
 let bulletX = 218
 
 //ship varuble
@@ -112,7 +113,7 @@ function update(){
         return;
     }
 
-    if(ship.x < 0 && Xspeed == -5 || ship.x > 500 && Xspeed == 5){
+    if(ship.x < 0 && Xspeed == -5 || ship.x > 500-shipWidth && Xspeed == 5){
         Xspeed = 0
     }
     ship.x += Xspeed;   
