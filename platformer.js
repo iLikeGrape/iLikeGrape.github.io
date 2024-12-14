@@ -107,6 +107,7 @@ function update() {
     player.y = Math.min(player.y + playerVelY, groundHeight)
 
     context.clearRect(0, 0, board.width, board.height);
+    context.fillStyle="green";
     context.fillRect(player.x, player.y, player.width, player.height);
     context.fillText(moveLeft, 40, 20)
     context.fillText(moveRight,40, 50)
