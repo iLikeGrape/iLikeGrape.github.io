@@ -12,15 +12,19 @@
 }
 #dinoBox{
     background-image: url("homeImgs/dinosaurgame.png");
+    background-size: contain;
 
 }
 #spaceBox{
     background-image: url(homeImgs/spaceinvaders.png);
+    background-size: contain;
     border: 10px solid lightgray;
 }
 #tictactoeBox{
     background-image: url(homeImgs/tictactoe.png);
+    background-size: contain;
 }
 #platformerBox{
     background-color: aqua;
+    background-size: contain;
 }
