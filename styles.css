@@ -1,24 +1,26 @@
-.cell{
-    width: 75px;
-    height: 75px;
-    border: 2px solid;
-    box-shadow: 0 0 0 2px;
-    line-height: 75px;
-    font-size: 50px;
-    cursor: pointer;
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    border: 10px solid black;
+}
+#dinoBox{
+    background-image: url("homeImgs/dinosaurgame.png");
 
 }
-#gameContainer{
-    font-family: "Permanent Marker";
-    text-align: center;
-    margin: auto;
+#spaceBox{
+    background-image: url(homeImgs/spaceinvaders.png);
+    border: 10px solid lightgray;
 }
-#cellContainer{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 225px;
-    margin: auto;
+#tictactoeBox{
+    background-image: url(homeImgs/tictactoe.png);
 }
-body{
-    text-align: center;
+#platformerBox{
+    background-color: aqua;
 }
