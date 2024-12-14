@@ -78,15 +78,13 @@ window.onload = function() { //when game starts
                 moveRight = false
         }
     }, false);
-    update()
+    requestAnimationFrame(update);
+
 }
-function update(){
+function update() {
     requestAnimationFrame(update);
     console.log("update")
     //preping for next frame
-    if (gameOver) {
-        return;
-    }
 
     //player X movement
 
