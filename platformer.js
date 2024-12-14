@@ -15,7 +15,7 @@ let playerVelY = 0;
 let playerVelX = 0;
 let onGround = true;
 let gravity = .4;
-let groundHeight = -400;
+let groundHeight = 400;
 
 let player = {
     x : playerX,
@@ -37,7 +37,7 @@ window.onload = function() { //when game starts
     context.fillStyle="green";
     context.fillRect(player.x, player.y, player.width, player.height);
 
-    window.addEventListener("keydown", function(e){
+    document.addEventListener("keydown", function(e){
         switch(e.key){
             case "ArrowLeft":
                 moveLeft = true
@@ -102,16 +102,22 @@ function update(){
     if(!moveLeft && !moveRight){
         playerVelX = 0
     }  
-
+    //player x movement
+    player.x += playerVelX
     //player Y movement
     playerVelY += gravity;
     player.y = Math.min(player.y + playerVelY, groundHeight)
+
+    context.clearRect(0, 0, board.width, board.height);
+    context.fillRect(player.x, player.y, player.width, player.height);
+
 };
+
 function xCollision(a, b) { // checks is the left or right sides are touching
     return a.x <= b.x + b.width &&   //a's left side is to the left of b's right side 
-           a.x + a.width >= b.x;  //a's right side is to the right b's left side
+         a.x + a.width >= b.x;  //a's right side is to the right b's left side
 }
 function yCollision(a, b) {
     return a.y <= b.y + b.height &&  //a's top side is above b's bottom side
-           a.y + a.height >= b.y;    //a's bottom side is under b's top side
+        a.y + a.height >= b.y;    //a's bottom side is under b's top side
 }
