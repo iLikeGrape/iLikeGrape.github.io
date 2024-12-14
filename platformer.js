@@ -110,6 +110,10 @@ function update(){
 
     context.clearRect(0, 0, board.width, board.height);
     context.fillRect(player.x, player.y, player.width, player.height);
+    context.fillText(moveLeft, 40, 20)
+    context.fillText(moveRight,40, 50)
+    context.fillText(playerVelX, 5, 20)
+    context.fillText(playerVelY, 5, 50)
 
 };
 
