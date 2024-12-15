@@ -24,6 +24,15 @@ let player = {
     height : playerHeight,
 };
 
+let platform = {
+    x : null,
+    y : null,
+    width : null,
+    height : null,
+};
+
+let platformArray = []
+
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -78,7 +87,7 @@ window.onload = function() { //when game starts
                 break;
         }
     }, false);
-
+    createPlatforms();
     requestAnimationFrame(update);
 
 }
@@ -87,8 +96,7 @@ function update() {
     console.log("update")
     //preping for next frame
 
-    //player X movement
-
+    //determining movement
     if(moveLeft && !moveRight){
         playerVelX = -5
     }
@@ -98,6 +106,20 @@ function update() {
     if(!moveLeft && !moveRight){
         playerVelX = 0
     }
+
+    for (let i = 0; i < platformArray.length; i++) { //drawing platforms 
+        let platform = platformArray[i];
+        context.fillStyle="black";
+        context.fillRect(platform.x, platform.y, platform.width, platform.height);
+        
+        if (xCollision(player, platform)) { //stoping player if hitting platforms
+            playerVelX = 0
+        }
+        if (yCollision(player, platform)) {
+            playerVelY = 0
+        }
+    };
+
     //player x movement
     player.x += playerVelX
     //player Y movement
