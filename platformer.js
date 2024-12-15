@@ -24,8 +24,6 @@ let player = {
     height : playerHeight,
 };
 
-let gameOver = false
-
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -40,30 +38,20 @@ window.onload = function() { //when game starts
     document.addEventListener("keydown", function(e){
         switch(e.key){
             case "ArrowLeft":
-                moveLeft = true
+                moveLeft = true;
             case "a":
-                moveLeft = true
+                moveLeft = true;
             case "ArrowRight":
-                moveRight = true
+                moveRight = true;
             case "d":
-                moveRight = true
+                moveRight = true;
             case " ":
                 e.preventDefault()
-                if (onGround) {
-                    playerVelY = -10
-                }
+                    playerVelY = -10;
             case "w":
-                if (onGround) {
-                    playerVelY = -10
-                }            
+                    playerVelY = -10;       
             case "ArrowUp":
-                if (onGround) {
-                    playerVelY = -10
-                }
-        }
-        if (moveRight && moveLeft) {
-            moveRight =  false;
-            moveLeft = false;
+                    playerVelY = -10;
         }
     }, false);
     window.addEventListener("keyup", function(e){
@@ -78,6 +66,7 @@ window.onload = function() { //when game starts
                 moveRight = false
         }
     }, false);
+    
     requestAnimationFrame(update);
 
 }
@@ -88,18 +77,15 @@ function update() {
 
     //player X movement
 
-    if(player.x < 0 && playerVelX == -5 || player.x > boardWidth-shipWidth && playerVelX == 5){
-        playerVelX = 0
-    }
     if(moveLeft && !moveRight){
-        playerVelX = -5
+        Xspeed = -5
     }
     if(moveRight && !moveLeft){
-        playerVelX = 5
+        Xspeed = 5
     }
     if(!moveLeft && !moveRight){
-        playerVelX = 0
-    }  
+        Xspeed = 0
+    }
     //player x movement
     player.x += playerVelX
     //player Y movement
