@@ -57,16 +57,16 @@ window.onload = function() { //when game starts
     window.addEventListener("keyup", function(e){
         switch(e.key){
             case "ArrowLeft":
-                moveLeft = false
+                moveLeft = false;
             case "a":
-                moveLeft = false
+                moveLeft = false;
             case "ArrowRight":
-                moveRight = false
+                moveRight = false;
             case "d":
-                moveRight = false
+                moveRight = false;
         }
     }, false);
-    
+
     requestAnimationFrame(update);
 
 }
@@ -78,13 +78,13 @@ function update() {
     //player X movement
 
     if(moveLeft && !moveRight){
-        Xspeed = -5
+        playerVelX = -5
     }
     if(moveRight && !moveLeft){
-        Xspeed = 5
+        playerVelX = 5
     }
     if(!moveLeft && !moveRight){
-        Xspeed = 0
+        playerVelX = 0
     }
     //player x movement
     player.x += playerVelX
