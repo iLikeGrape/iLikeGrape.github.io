@@ -38,32 +38,44 @@ window.onload = function() { //when game starts
     document.addEventListener("keydown", function(e){
         switch(e.key){
             case "ArrowLeft":
-                moveLeft = true;
+                moveLeft = true
+                break;
             case "a":
-                moveLeft = true;
+                moveLeft = true
+                break;
             case "ArrowRight":
-                moveRight = true;
+                moveRight = true
+                break;
             case "d":
-                moveRight = true;
+                moveRight = true
+                break;
             case " ":
                 e.preventDefault()
-                    playerVelY = -10;
+                playerVelY = -10;
+                break;
             case "w":
-                    playerVelY = -10;       
+                playerVelY = -10; 
+                break;      
             case "ArrowUp":
-                    playerVelY = -10;
+                playerVelY = -10;
+                break;
+
         }
     }, false);
     window.addEventListener("keyup", function(e){
         switch(e.key){
             case "ArrowLeft":
-                moveLeft = false;
+                moveLeft = false
+                break;
             case "a":
-                moveLeft = false;
+                moveLeft = false
+                break;
             case "ArrowRight":
-                moveRight = false;
+                moveRight = false
+                break;
             case "d":
-                moveRight = false;
+                moveRight = false
+                break;
         }
     }, false);
 
