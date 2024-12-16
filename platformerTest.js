@@ -5,7 +5,7 @@ let context;
 
 // Player properties
 let playerX = 400;
-let playerY = 400;
+let playerY = 300;
 let playerWidth = 50;
 let playerHeight = 50;
 
@@ -117,9 +117,7 @@ function update() {
         playerVelX = 0
     }
     // Calculating gravity
-    if (!onGround) {
-        playerVelY += gravity;
-    }
+    playerVelY += gravity;
 
     // Player x movement
     player.x += playerVelX;
@@ -133,7 +131,6 @@ function update() {
                 // If player is moving downwards and touches the platform
                 if (playerVelY > 0) {
                     player.y = platform.y - player.height;
-                    onGround = true;
                     playerVelY = 0;
                 }
                 // If player is moving upwards and touches the platform
