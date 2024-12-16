@@ -12,7 +12,6 @@ let playerHeight = 50;
 // Player physics
 let playerVelY = 0;
 let playerVelX = 0;
-let onGround = true;
 let gravity = 0.4;
 let groundHeight = 400;
 let moveLeft = false;
@@ -60,22 +59,13 @@ window.onload = function () { //when game starts
                 break;
             case " ":
                 e.preventDefault()
-                if (onGround) {
-                    playerVelY = -10;
-                    onGround = false;
-                }
+                playerVelY = -10;
                 break;
             case "w":
-                if (onGround) {
-                    playerVelY = -10;
-                    onGround = false;
-                }
+                playerVelY = -10;
                 break;
             case "ArrowUp":
-                if (onGround) {
-                    playerVelY = -10;
-                    onGround = false;
-                }
+                playerVelY = -10;
                 break;
 
         }
@@ -123,7 +113,6 @@ function update() {
     player.x += playerVelX;
 
     // Collision detection with platforms
-    onGround = false;
     for (let i = 0; i < platformArray.length; i++) {
         let platform = platformArray[i];
         if (player.x + player.width > platform.x && player.x < platform.x + platform.width) {
@@ -142,14 +131,8 @@ function update() {
         }
     }
 
-    // Collision detection with ground
-    if (player.y + player.height > groundHeight) {
-        player.y = groundHeight - player.height;
-        onGround = true;
-        playerVelY = 0;
-    }
-
-    player.y += playerVelY;
+   //move player 
+    player.y = Math.min(playerVelY + player.y, groundHeight);
 
     // Drawing platforms
     for (let i = 0; i < platformArray.length; i++) {
