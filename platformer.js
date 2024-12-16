@@ -139,8 +139,15 @@ function update() {
 function xCollision(a, b) { // checks is the left or right sides are touching
     return a.x <= b.x + b.width &&   //a's left side is to the left of b's right side 
          a.x + a.width >= b.x;  //a's right side is to the right b's left side
-}
+};
 function yCollision(a, b) {
     return a.y <= b.y + b.height &&  //a's top side is above b's bottom side
         a.y + a.height >= b.y;    //a's bottom side is under b's top side
-}
+};
+function createPlatforms() {
+    platform.height = 25;
+    platform.width = 150;
+    platform.x = 50;
+    platform.y = 200;
+    platformArray.push(platform);
+};
