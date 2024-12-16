@@ -137,7 +137,7 @@ function update() {
                     playerVelY = 0;
                 }
                 // If player is moving upwards and touches the platform
-                else if (playerVelY < 0 && platform.y) {
+                else if (playerVelY < 0) {
                     player.y = platform.y + platform.height;
                     playerVelY = 0;
                 }
