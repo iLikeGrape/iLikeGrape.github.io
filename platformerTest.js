@@ -60,13 +60,22 @@ window.onload = function () { //when game starts
                 break;
             case " ":
                 e.preventDefault()
-                playerVelY = -10;
+                if (onGround) {
+                    playerVelY = -10;
+                    onGround = false;
+                }
                 break;
             case "w":
-                playerVelY = -10;
+                if (onGround) {
+                    playerVelY = -10;
+                    onGround = false;
+                }
                 break;
             case "ArrowUp":
-                playerVelY = -10;
+                if (onGround) {
+                    playerVelY = -10;
+                    onGround = false;
+                }
                 break;
 
         }
@@ -108,19 +117,23 @@ function update() {
         playerVelX = 0
     }
     // Calculating gravity
-    playerVelY += gravity;
+    if (!onGround) {
+        playerVelY += gravity;
+    }
 
     // Player x movement
     player.x += playerVelX;
 
     // Collision detection with platforms
+    onGround = false;
     for (let i = 0; i < platformArray.length; i++) {
         let platform = platformArray[i];
         if (player.x + player.width > platform.x && player.x < platform.x + platform.width) {
-            if (player.y + player.height > platform.y && player.y < platform.y + platform.height) {
+            if (player.y + player.height > platform.y && player.y + player.height < platform.y + platform.height) {
                 // If player is moving downwards and touches the platform
                 if (playerVelY > 0) {
                     player.y = platform.y - player.height;
+                    onGround = true;
                     playerVelY = 0;
                 }
                 // If player is moving upwards and touches the platform
@@ -135,6 +148,7 @@ function update() {
     // Collision detection with ground
     if (player.y + player.height > groundHeight) {
         player.y = groundHeight - player.height;
+        onGround = true;
         playerVelY = 0;
     }
 
