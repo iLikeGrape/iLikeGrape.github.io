@@ -16,6 +16,9 @@ let playerVelX = 0;
 let onGround = true;
 let gravity = .4;
 let groundHeight = 400;
+let moveLeft = false;
+let moveRight = false;
+
 
 let player = {
     x : playerX,
@@ -94,6 +97,7 @@ window.onload = function() { //when game starts
 function update() {
     requestAnimationFrame(update);
     console.log("update")
+    context.clearRect(0, 0, board.width, board.height);
     //preping for next frame
 
     //determining movement
@@ -109,15 +113,11 @@ function update() {
 
     for (let i = 0; i < platformArray.length; i++) { //drawing platforms 
         let platform = platformArray[i];
-        context.fillStyle="black";
         context.fillRect(platform.x, platform.y, platform.width, platform.height);
         
-        if (xCollision(player, platform)) { //stoping player if hitting platforms
-            playerVelX = 0
-        }
-        if (yCollision(player, platform)) {
-            playerVelY = 0
-        }
+        if (xCollision(player, platform)&& yCollision(player, platform) ) { //stoping player if hitting platforms
+            playerVelY = 0;
+        };
     };
 
     //player x movement
@@ -126,7 +126,6 @@ function update() {
     playerVelY += gravity;
     player.y = Math.min(player.y + playerVelY, groundHeight)
 
-    context.clearRect(0, 0, board.width, board.height);
     context.fillStyle="green";
     context.fillRect(player.x, player.y, player.width, player.height);
     context.fillText(moveLeft, 40, 20)
