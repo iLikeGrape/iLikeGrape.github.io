@@ -120,12 +120,12 @@ function update() {
         
         if (xCollision(player, platform)&& yCollision(player, platform) ) { //stoping player going up if hitting platforms
             playerVelY = 0;
-            if (checkSide(player,platform) == right){
+            if (checkSideRight){
                 if(playerVelX < 0){
                     playerVelX = 0
                 };
             };
-            if (checkSide(player,platform) == left){
+            if (checkSideLeft){
                 if(playerVelX > 0){
                     playerVelX = 0
                 };   
@@ -161,13 +161,15 @@ function createPlatforms() {
     platform.y = 200;
     platformArray.push(platform);
 };
-function checkSide(a, b) {
+function checkSideLeft(a, b) {
     if(a.x <= b.x && a.x + a.width >= b.x){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
         if (a.x + a.width - b.x <= 10 && a.x + a.width - b.x >= 0)
-            return left;
+            return true;
     };
+};
+function checkSideRight(a, b) {
     if(a.x <= b.x + b.width && a.x + a.width >= b.x + b.width){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
         if (a.x + a.width - b.x - b.width <= 10 && a.x + a.width - b.x - b.width >= 0)
-            return right;
+            return true ;
     };
 };
