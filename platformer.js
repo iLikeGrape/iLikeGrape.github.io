@@ -117,20 +117,7 @@ function update() {
     for (let i = 0; i < platformArray.length; i++) { //drawing platforms 
         let platform = platformArray[i];
         context.fillRect(platform.x, platform.y, platform.width, platform.height);
-        
-        if (xCollision(player, platform)&& yCollision(player, platform) ) { //stoping player going up if hitting platforms
-            playerVelY = 0;
-            if (checkSideRight){
-                if(playerVelX < 0){
-                    playerVelX = 0
-                };
-            };
-            if (checkSideLeft){
-                if(playerVelX > 0){
-                    playerVelX = 0
-                };   
-            };
-        };
+
     };
 
     //player x movement
@@ -146,30 +133,10 @@ function update() {
 
 };
 
-function xCollision(a, b) { // checks is the left or right sides are touching
-    return a.x <= b.x + b.width &&   //a's left side is to the left of b's right side 
-         a.x + a.width >= b.x;  //a's right side is to the right b's left side
-};
-function yCollision(a, b) {
-    return a.y <= b.y + b.height &&  //a's top side is above b's bottom side
-        a.y + a.height >= b.y;    //a's bottom side is under b's top side
-};
 function createPlatforms() {
     platform.height = 25;
     platform.width = 150;
     platform.x = 50;
     platform.y = 200;
     platformArray.push(platform);
-};
-function checkSideLeft(a, b) {
-    if(a.x <= b.x && a.x + a.width >= b.x){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
-        if (a.x + a.width - b.x <= 10 && a.x + a.width - b.x >= 0)
-            return true;
-    };
-};
-function checkSideRight(a, b) {
-    if(a.x <= b.x + b.width && a.x + a.width >= b.x + b.width){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
-        if (a.x + a.width - b.x - b.width <= 10 && a.x + a.width - b.x - b.width >= 0)
-            return true ;
-    };
 };
