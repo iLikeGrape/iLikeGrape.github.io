@@ -110,20 +110,31 @@ function update() {
     if(!moveLeft && !moveRight){
         playerVelX = 0
     }
+    //calculating gravity
+    playerVelY += gravity;
 
+    //for quicksand, sent playerVelY to gravity while touching and dont check sides
     for (let i = 0; i < platformArray.length; i++) { //drawing platforms 
         let platform = platformArray[i];
         context.fillRect(platform.x, platform.y, platform.width, platform.height);
         
-        if (xCollision(player, platform)&& yCollision(player, platform) ) { //stoping player if hitting platforms
+        if (xCollision(player, platform)&& yCollision(player, platform) ) { //stoping player going up if hitting platforms
             playerVelY = 0;
+            if (checkSide(player,platform) == right){
+                if(playerVelX < 0){
+                    playerVelX = 0
+                };
+            };
+            if (checkSide(player,platform) == left){
+                if(playerVelX > 0){
+                    playerVelX = 0
+                };   
+            };
         };
     };
 
     //player x movement
     player.x += playerVelX
-    //player Y movement
-    playerVelY += gravity;
     player.y = Math.min(player.y + playerVelY, groundHeight)
 
     context.fillStyle="green";
@@ -149,4 +160,14 @@ function createPlatforms() {
     platform.x = 50;
     platform.y = 200;
     platformArray.push(platform);
+};
+function checkSide(a, b) {
+    if(a.x <= b.x && a.x + a.width >= b.x){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
+        if (a.x + a.width - b.x <= 10 && a.x + a.width - b.x >= 0)
+            return left;
+    };
+    if(a.x <= b.x + b.width && a.x + a.width >= b.x + b.width){ //if a left side to the left of b left side and a right side to the right of b left side, its the right side of a touching b
+        if (a.x + a.width - b.x - b.width <= 10 && a.x + a.width - b.x - b.width >= 0)
+            return right;
+    };
 };
