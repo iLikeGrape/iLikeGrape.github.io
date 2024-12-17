@@ -10,7 +10,7 @@ body{
 #cellContainer{
     display: grid;
     grid-template-columns: repeat(3, auto);
-    width: 900px;
+    width: 700px;
 }
 .cell{
     width: 150px;

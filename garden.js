@@ -15,21 +15,21 @@ function startgame(){
     cells.forEach(function(cell) {
         cell.addEventListener("click", cellClicked);  //ignore this cell it is placeholder for certain index in "cells"
     });
+
 }
 
 function cellClicked(){
 
     const cellIndex = this.getAttribute("cellIndex");
-
-    if(plants[cellIndex] != ""){
-        return;
-    }
-
     plants[cellIndex] = "x";
     this.textContent = "x";
-
-    updateCell(this, cellIndex);  //"this" = current cell 
     console.log("cellClicked")
+
+    updateCell(this, cellIndex);
+}
+function updateCell(cell, index){
+    plants[index] = currentPlayer;
+    cell.textContent = currentPlayer;
 }
 
 
