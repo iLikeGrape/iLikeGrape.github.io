@@ -1,8 +1,9 @@
+
 .links{
-    display: flex;
-    justify-content: space-evenly;
-    column-gap: 25px;
-    row-gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    width: 750px;
+    margin: auto;
 }
 .box{
     width: 150px;
@@ -13,7 +14,6 @@
 #dinoBox{
     background-image: url("homeImgs/dinosaurgame.png");
     background-size: contain;
-
 }
 #spaceBox{
     background-image: url(homeImgs/spaceinvaders.png);
@@ -26,5 +26,9 @@
 }
 #platformerBox{
     background-color: aqua;
+    background-size: contain;
+}
+#cookieBox{
+    background-image: url(homeImgs/cookie.png);
     background-size: contain;
 }
