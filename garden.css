@@ -1,9 +1,16 @@
 
+body{
+    text-align: center;
+}
+#gameContainer{
+    font-family: "Permanent Marker";
+    text-align: center;
+    margin: auto;
+}
 #cellContainer{
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 900px;
-    margin: auto;
 }
 .cell{
     width: 150px;

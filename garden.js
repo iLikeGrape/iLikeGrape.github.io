@@ -5,8 +5,9 @@ let plants = ["", "", "", "", "", "", "", "", ""];
 const adjacentPlants = [
     ["1", "3", "4"],  //to cell 0
     ["0", "2", "3", "4", "5"],  //to cell 1
+    ["1", "4", "5"],  //to cell 2
 ]
-
+let adjacentPlaceholder = [];
 
 
 function startgame(){
@@ -17,6 +18,7 @@ function startgame(){
 }
 
 function cellClicked(){
+
     const cellIndex = this.getAttribute("cellIndex");
 
     if(plants[cellIndex] != ""){
@@ -27,9 +29,7 @@ function cellClicked(){
     this.textContent = "x";
 
     updateCell(this, cellIndex);  //"this" = current cell 
-    checkWinner();
+    console.log("cellClicked")
 }
 
-function updateCell(cell, index){
-   
-}
+
