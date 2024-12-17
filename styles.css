@@ -4,6 +4,8 @@
     grid-template-columns: repeat(4, auto);
     width: 750px;
     margin: auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
 }
 .box{
     width: 150px;
@@ -30,5 +32,9 @@
 }
 #cookieBox{
     background-image: url(homeImgs/cookie.png);
+    background-size: contain;
+}
+#zombieBox{
+    background-image: url(homeImgs/zombie.png);
     background-size: contain;
 }
