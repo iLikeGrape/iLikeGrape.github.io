@@ -9,6 +9,10 @@ const adjacentPlants = [
 ]
 let adjacentPlaceholder = [];
 
+startgame()
+
+
+
 
 function startgame(){
 
