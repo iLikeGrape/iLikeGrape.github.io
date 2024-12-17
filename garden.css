@@ -1,5 +1,5 @@
 
-.cellContainer{
+#cellContainer{
     display: grid;
     grid-template-columns:6;
     grid-template-rows: 6;

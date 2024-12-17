@@ -7,9 +7,25 @@ let cellId = { //used for pushing data into planted array
 
 let plantedArray = []; //used to store data of which cells have plants
 
+let board;
+let boardWidth = 800;
+let boardHeight = 500;
+let context;
+
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked))
+    board = document.getElementById("board");
+    board.height = boardHeight;
+    board.width = boardWidth;
+
+    context = board.getContext("2d"); //used for drawing on the board
+
+    //drawing text
+    context.fillStyle="green";
+    context.fillText(cells, 40, 20)
+    context.fillText(plantedArray, 40, 40)
+
 }
 
 function cellClicked(){
@@ -18,8 +34,11 @@ function cellClicked(){
         collumn : this.getAttribute("cellCollumn"),
     }
     plantedArray.push(cellId)
+    console.log(`${cellId} was clicked`)
 }
 function update(){
+    requestAnimationFrame(update)
+    updateCells()
 }
 function updateCells(){
     for(let i=0; i < cells.length; i++){
@@ -31,10 +50,5 @@ function updateCells(){
             }
         }
     }
-
-    for(let i=0; i < plantedArray.length; i++){
-        if(cellId == plantedArray[i]){
-            this.textContent = "X"
-        }
-    }
+    console.log("cell update")
 }
