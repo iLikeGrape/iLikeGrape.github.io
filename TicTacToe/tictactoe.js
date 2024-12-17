@@ -18,7 +18,11 @@ let running = false;
 initializeGame()
 
 function initializeGame(){
-    cells.forEach(cell => cell.addEventListener("click", cellClicked))
+    
+    cells.forEach(function(cell) {
+        cell.addEventListener("click", cellClicked);  //ignore this cell it is placeholder for certain index in "cells"
+      });
+
     restartBtn.addEventListener("click", restartGame)
     currentPlayer = "X"
     statusText.textContent = `${currentPlayer}'s turn`;

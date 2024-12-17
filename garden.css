@@ -1,8 +1,8 @@
 
 #cellContainer{
     display: grid;
-    grid-template-columns:6;
-    grid-template-rows: 6;
+    grid-template-columns: repeat(3, auto);
+    width: 900px;
     margin: auto;
 }
 .cell{
