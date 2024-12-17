@@ -1,0 +1,14 @@
+
+.cellContainer{
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    margin: auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+.cell{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    border: 10px solid black;
+}
