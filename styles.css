@@ -2,7 +2,6 @@
 .links{
     display: grid;
     grid-template-columns: repeat(4, auto);
-    width: 750px;
     margin: auto;
     grid-column-gap: 50px;
     grid-row-gap: 50px;
