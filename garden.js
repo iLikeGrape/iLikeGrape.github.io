@@ -1,4 +1,4 @@
-const cells = document.querySelectorAll(".cell"); // cells becomes array with data of each element with id "cell"
+const cells = document.querySelectorAll(".cell");
 const btn = document.querySelector("#tick");
 
 let plants = ["", "", "", "", "", "", "", "", ""];
@@ -14,27 +14,16 @@ const adjacentPlants = [
     ["3", "4", "5", "6", "8"], //to cell 7
     ["4", "5", "7"], //to cell 8
 ]
-let adjacentPlaceholder = [];
-let adjacentAmount = null;
-
-
-startgame()
-
-
-
 
 function startgame(){
-
     cells.forEach(function(cell) {
-        cell.addEventListener("click", cellClicked);  //ignore this cell it is placeholder for certain index in "cells"
+        cell.addEventListener("click", cellClicked);  
     });
 
-    btn.addEventListener("click", tick())
-
+    btn.addEventListener("click", tick)
 }
 
 function cellClicked(){
-
     const cellIndex = this.getAttribute("cellIndex");
     if(plants[cellIndex] == "x" || this.textContent == "x"){
         plants[cellIndex] = "";
@@ -50,20 +39,23 @@ function cellClicked(){
 function tick(){
     for(let i = 0; i < plants.length; i++){
         let adjacentPlaceholder = adjacentPlants[i]
-        adjacentAmount = 0
+        let adjacentAmount = 0
         
-        for(let i = 0; i < adjacentPlaceholder.length; i++){
+        for(let j = 0; j < adjacentPlaceholder.length; j++){
             
-            if(plants[adjacentPlaceholder[i]] == "x"){
-
+            if(plants[adjacentPlaceholder[j]] == "x"){
                 adjacentAmount++
             }
         }
 
-        if(adjacentAmount >= 2 && plants[i] == "x"){
+        if(adjacentAmount >= 2 && plants[i]!= "x" && plants[i]!= "o"){
             plants[i] = "o";
-            this.textContent = "o";
+            cells[i].textContent = "o";
         }
     }
 }
 
+
+
+
+startgame()
