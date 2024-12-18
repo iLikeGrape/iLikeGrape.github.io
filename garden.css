@@ -10,11 +10,14 @@ body{
 #cellContainer{
     display: grid;
     grid-template-columns: repeat(3, auto);
-    width: 700px;
+    width: 450px;
+    margin: auto;
 }
 .cell{
     width: 150px;
     height: 150px;
     border-radius: 15px;
     border: 10px solid black;
+    font-family: "Trebuchet MS";
+    font-size: 150px;
 }
