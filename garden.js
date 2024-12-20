@@ -24,9 +24,8 @@ const adjacentPlants = [
     ["3", "4", "5", "6", "8"], //to cell 7
     ["4", "5", "7"], //to cell 8
 ];
-let adjacentPlantsPlaceholder;
-let adjacentArrayPlaceholder;
-let amountPlaceholder;
+let adjacentPlantsPlaceholder = [];
+let adjacentArrayPlaceholder = [];
 
 
 
@@ -42,7 +41,7 @@ function startgame(){
 
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
-    if(plants[cellIndex] == "" && this.textContent == ""){
+    if(plants[cellIndex] == ""){
         plants[cellIndex] = "x"; //changing box you clicked on 
         this.textContent = "x";
         let adjacentPlantsPlaceholder = adjacentPlants[cellIndex] //preping for next step
